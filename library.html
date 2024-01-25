@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Book Tracker</title>
+</head>
+<body>
+    <button class="new-book" data-new-book>NEW BOOK</button>
+    <dialog id="new-book-dialog" data-dialog>
+        <h2>Add New Book</h2>
+        <form action="" data-form>
+            <div class="name-container">
+                <label for="book-name">Book Name:</label>
+                <input type="text" required>
+            </div>
+
+            <div class="author-container">
+                <label for="book-name">Book Author:</label>
+                <input type="text" required>
+            </div>
+            
+            <div class="pages-container">
+                <label for="book-name">Book Pages:</label>
+                <input type="number" min="1" max="1000" required>
+            </div>
+            
+            <div class="status-container">
+                <label for="book-status">Book Status:</label>
+                <select name="book-status" id="book-status" required>
+                    <option value=""></option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+
+            <button type="submit">Add Book</button>
+            <button class="cancel" data-cancel>Cancel</button>
+        </form>
+    </dialog>
+    <script src="library.js"></script>
+</body>
+</html>
