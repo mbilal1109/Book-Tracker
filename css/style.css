@@ -2,3 +2,12 @@
     margin: 0;
     padding: 0;
 }
+
+.grid-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(auto-fill, 1fr);
+    grid-row-gap: .5em;
+    grid-column-gap: 1em;
+}

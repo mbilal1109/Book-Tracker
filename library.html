@@ -7,36 +7,43 @@
     <title>Book Tracker</title>
 </head>
 <body>
-    <button class="new-book" data-new-book>NEW BOOK</button>
-    <dialog id="new-book-dialog" data-dialog>
+    <header id="navbar">
+        <h1>Book Tracker</h1>
+        <button class="new-book" data-new-book>NEW BOOK</button>
+    </header>
+    <main class="info-container">
+        <div class="grid-container"></div>
+    </main>
+    
+    <dialog id="new-book-dialog">
         <h2>Add New Book</h2>
-        <form action="" data-form>
+        <form class="form-container">
             <div class="name-container">
                 <label for="book-name">Book Name:</label>
-                <input type="text" required>
+                <input name="book-name" type="text" id="book-name">
             </div>
 
             <div class="author-container">
-                <label for="book-name">Book Author:</label>
-                <input type="text" required>
+                <label for="book-author">Book Author:</label>
+                <input name="book-author" type="text" id="book-author">
             </div>
             
             <div class="pages-container">
-                <label for="book-name">Book Pages:</label>
-                <input type="number" min="1" max="1000" required>
+                <label for="book-pages">Book Pages:</label>
+                <input name="book-pages" type="number" min="1" max="1000" id="book-pages">
             </div>
             
             <div class="status-container">
                 <label for="book-status">Book Status:</label>
-                <select name="book-status" id="book-status" required>
+                <select name="book-status" id="book-status">
                     <option value=""></option>
                     <option value="In Progress">In Progress</option>
                     <option value="Completed">Completed</option>
                 </select>
             </div>
 
-            <button type="submit">Add Book</button>
-            <button class="cancel" data-cancel>Cancel</button>
+            <button type="button" class="add-book">Add Book</button>
+            <button class="cancel">Cancel</button>
         </form>
     </dialog>
     <script src="library.js"></script>
