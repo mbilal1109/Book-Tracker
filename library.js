@@ -1,4 +1,5 @@
 const myLibrary = [];
+
 const dialog = document.querySelector("#new-book-dialog");
 const newBookBtn = document.querySelector("[data-new-book]");
 const cancelBtn = document.querySelector(".cancel");
@@ -13,6 +14,8 @@ const bStatus = document.querySelector("#book-status");
 
 let card;
 let delButton;
+let index = 0;
+let indd = 0;
 
 function Book(name, author, pages, status) {
     this.name = name;
@@ -25,35 +28,56 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
-function displayBooks(book) {
-    createCard();
-    createDeleteButton();
-
+function createText(book) {
     let p1 = document.createElement("p");
-    p1.textContent = book.title;
+    p1.textContent = `Name: ${book.name}`;
 
     let p2 = document.createElement("p");
-    p2.textContent = book.author;
+    p2.textContent = `Author: ${book.author}`;
 
     let p3 = document.createElement("p");
-    p3.textContent = book.pages;
+    p3.textContent = `Pages: ${book.pages}`;
 
     let p4 = document.createElement("p");
-    p4.textContent = book.status;
+    p4.textContent = `Status: ${book.status}`;
 
     card.append(p1, p2, p3, p4, delButton);
-    container.appendChild(card);
+}
+
+function displayAllBooks() {
+    container.innerHTML = "";
+    index = 0;
+    indd = 0;
+    myLibrary.forEach((book) => { 
+      createCard();
+      createDeleteButton();
+      createText(book);
+      container.appendChild(card);
+    });
 }
 
 function createCard() {
     card = document.createElement("div");
     card.setAttribute("class", "book-info");
+    card.setAttribute("value", `${index}`);
+    index++;
 }
 
 function createDeleteButton() {
     delButton = document.createElement("button");
     delButton.textContent = "Delete Book";
     delButton.setAttribute("class", "delete-button");
+    delButton.setAttribute("value", `${indd}`);
+    indd++;
+}
+
+function handleDeleteButton() {
+    const deleteBtns = document.querySelectorAll(".delete-button");
+    deleteBtns.forEach((button) => {
+        button.addEventListener("click", () => {
+            console.log(button.value)
+        });
+    });
 }
 
 addBookBtn.addEventListener("click", (event) => {
@@ -73,7 +97,8 @@ addBookBtn.addEventListener("click", (event) => {
     addBookToLibrary(bookObject);
     dialog.close();
 
-    displayBooks(bookObject);
+    displayAllBooks();
+    handleDeleteButton();
 });
 
 newBookBtn.addEventListener("click", () => {
@@ -81,6 +106,5 @@ newBookBtn.addEventListener("click", () => {
 });
 
 cancelBtn.addEventListener("click", () => {
-    console.log("Hello")
     dialog.close();
 });
