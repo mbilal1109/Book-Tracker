@@ -16,6 +16,7 @@ let card;
 let delButton;
 let index = 0;
 let indd = 0;
+let deleteBtns = []; 
 
 function Book(name, author, pages, status) {
     this.name = name;
@@ -72,10 +73,11 @@ function createDeleteButton() {
 }
 
 function handleDeleteButton() {
-    const deleteBtns = document.querySelectorAll(".delete-button");
     deleteBtns.forEach((button) => {
         button.addEventListener("click", () => {
             console.log(button.value)
+            myLibrary.splice(button.value, 1)
+            displayAllBooks();
         });
     });
 }
@@ -98,6 +100,7 @@ addBookBtn.addEventListener("click", (event) => {
     dialog.close();
 
     displayAllBooks();
+    console.log(deleteBtns)
     handleDeleteButton();
 });
 
