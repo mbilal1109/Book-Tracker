@@ -14,8 +14,8 @@ const bStatus = document.querySelector("#book-status");
 
 let card;
 let delButton;
-let index = 0;
-let indd = 0;
+let cardIndex = 0;
+let deleteIndex = 0;
 
 function Book(name, author, pages, status) {
     this.name = name;
@@ -46,8 +46,8 @@ function createText(book) {
 
 function displayAllBooks() {
     container.innerHTML = "";
-    index = 0;
-    indd = 0;
+    cardIndex = 0;
+    deleteIndex = 0;
     myLibrary.forEach((book) => { 
       createCard();
       createDeleteButton();
@@ -59,24 +59,22 @@ function displayAllBooks() {
 function createCard() {
     card = document.createElement("div");
     card.setAttribute("class", "book-info");
-    card.setAttribute("value", `${index}`);
-    index++;
+    card.setAttribute("data-value", `${cardIndex}`);
+    cardIndex++;
 }
 
 function createDeleteButton() {
     delButton = document.createElement("button");
     delButton.textContent = "Delete Book";
     delButton.setAttribute("class", "delete-button");
-    delButton.setAttribute("data-index", `${indd}`);
-    indd++;
+    delButton.setAttribute("data-index", `${deleteIndex}`);
+    deleteIndex++;
 }
 
 function handleDeleteButton(e) {
     if(!e.target.matches('button')) return; // skip this unless it's the delete button 
-    console.log(e.target);
     const element = e.target;
-    console.log(element.dataset.index);
-    myLibrary.splice(element, 1);
+    myLibrary.splice(element.dataset.index, 1);
     displayAllBooks();
 }
 
