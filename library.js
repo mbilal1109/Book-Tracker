@@ -67,20 +67,20 @@ function createDeleteButton() {
     delButton = document.createElement("button");
     delButton.textContent = "Delete Book";
     delButton.setAttribute("class", "delete-button");
-    delButton.setAttribute("value", `${indd}`);
+    delButton.setAttribute("data-index", `${indd}`);
     indd++;
 }
 
-function handleDeleteButton() {
-    const deleteBtns = document.querySelectorAll(".delete-button");
-    deleteBtns.forEach((button) => {
-        button.addEventListener("click", () => {
-            console.log(button.value)
-            myLibrary.splice(button.value, 1)
-            displayAllBooks();
-        });
-    });
+function handleDeleteButton(e) {
+    if(!e.target.matches('button')) return; // skip this unless it's the delete button 
+    console.log(e.target);
+    const element = e.target;
+    console.log(element.dataset.index);
+    myLibrary.splice(element, 1);
+    displayAllBooks();
 }
+
+container.addEventListener('click', handleDeleteButton);
 
 addBookBtn.addEventListener("click", (event) => {
     event.preventDefault();
@@ -99,7 +99,6 @@ addBookBtn.addEventListener("click", (event) => {
     addBookToLibrary(bookObject);
     dialog.close();
     displayAllBooks();
-    handleDeleteButton();
 });
 
 newBookBtn.addEventListener("click", () => {
