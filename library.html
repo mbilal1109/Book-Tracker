@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Book Tracker</title>
 </head>
 <body>
     <header id="navbar">
-        <h1>Book Tracker</h1>
-        <button class="new-book" data-new-book>NEW BOOK</button>
+        <div class="heading">
+            <h1>Book Tracker</h1>
+        </div>
+        <div class="book-button">
+            <button class="new-book" data-new-book>NEW BOOK</button>
+        </div>
     </header>
     <main class="info-container">
         <div class="grid-container"></div>
@@ -20,7 +27,7 @@
         <form class="form-container">
             <div class="name-container">
                 <label for="book-name">Book Name:</label>
-                <input name="book-name" type="text" id="book-name">
+                <input name="book-name" type="text" id="book-name" required>
             </div>
 
             <div class="author-container">
@@ -46,6 +53,10 @@
             <button class="cancel">Cancel</button>
         </form>
     </dialog>
+
+    <!-- <footer id="footer">
+        <p>Hello!!</p>
+    </footer> -->
     <script src="library.js"></script>
 </body>
 </html>
