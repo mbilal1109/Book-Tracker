@@ -17,6 +17,7 @@ let delButton;
 let statusButton;
 let cardIndex = 0;
 let deleteIndex = 0;
+let statusIndex = 0;
 
 function Book(name, author, pages, status) {
     this.name = name;
@@ -49,6 +50,7 @@ function displayAllBooks() {
     container.innerHTML = "";
     cardIndex = 0;
     deleteIndex = 0;
+    statusIndex = 0;
     myLibrary.forEach((book) => { 
       createCard();
       createDeleteButton();
@@ -77,16 +79,34 @@ function createStatusButton() {
     statusButton = document.createElement("button");
     statusButton.textContent = "Toggle Status";
     statusButton.setAttribute("class", "status-button");
+    statusButton.setAttribute("data-status", `${statusIndex}`);
+    statusIndex++;
 }
 
 function handleDeleteButton(e) {
-    if(!e.target.matches('.delete-button')) return; // skip this unless it's the delete button 
+    if(!e.target.matches(".delete-button")) return; // skip this unless it's the delete button 
     const element = e.target;
     myLibrary.splice(element.dataset.index, 1);
     displayAllBooks();
 }
 
+function handleStatusButton(e) {
+    if(!e.target.matches(".status-button")) return; // skip this unless it's the status button
+    const element = e.target;
+    let book = myLibrary[element.dataset.status];
+
+    if(book.status == "In Progress") {
+        book.status = "Completed";
+    } else {
+        book.status = "In Progress";
+    }
+
+    displayAllBooks();
+}
+
 container.addEventListener('click', handleDeleteButton);
+
+container.addEventListener('click', handleStatusButton);
 
 addBookBtn.addEventListener("click", (e) => {
     e.preventDefault();
