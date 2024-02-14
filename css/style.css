@@ -4,6 +4,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body {
+    background-color: rgb(216, 207, 207);
+}
+
 #navbar {
     display: flex;
     justify-content: space-around;
@@ -29,7 +33,8 @@
 .new-book,
 .status-button,
 .add-book,
-.cancel {
+.cancel,
+.login {
     background-color: brown;
     border-radius: 5px;
     border-style: none;
@@ -58,7 +63,8 @@
 .new-book:hover,
 .status-button:hover,
 .add-book:hover,
-.cancel:hover {
+.cancel:hover,
+.login:hover {
     background-color: gray;
     color: black;
 }

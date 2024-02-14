@@ -11,6 +11,7 @@ const bName = document.querySelector("#book-name");
 const author = document.querySelector("#book-author");
 const pages = document.querySelector("#book-pages");
 const bStatus = document.querySelector("#book-status");
+const login = document.querySelector(".login");
 
 let card;
 let delButton;
@@ -134,4 +135,10 @@ newBookBtn.addEventListener("click", () => {
 
 cancelBtn.addEventListener("click", () => {
     dialog.close();
+});
+
+login.addEventListener("click", () => {
+    if(window.confirm("Click OK to Login or Cancel to Stay on this Page")) {
+        window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+    }
 });
