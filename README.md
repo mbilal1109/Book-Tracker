@@ -1,10 +1,10 @@
 # Book-Tracker
 
-![Book Tracker App](mbilal1109.github.io/Book-Tracker/)
+**Find the link on the right to check it out.**
 
 ## Overview
 
-Book Tracker is a simple and intuitive web application that enables users to track their reading progress, manage bookshelves, and discover new reads. Whether you're a seasoned reader or just starting, this tool enhances your reading experience and aids in staying organized.
+Book Tracker is a simple and intuitive web application that enables users to track their reading progress, and manage bookshelves. Whether you're a seasoned reader or just starting, this tool enhances your reading experience and aids in staying organized.
 
 ## Features
 
