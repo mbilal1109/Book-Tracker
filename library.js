@@ -14,6 +14,7 @@ const bStatus = document.querySelector("#book-status");
 
 let card;
 let delButton;
+let statusButton;
 let cardIndex = 0;
 let deleteIndex = 0;
 
@@ -41,7 +42,7 @@ function createText(book) {
     let p4 = document.createElement("p");
     p4.textContent = `Status: ${book.status}`;
 
-    card.append(p1, p2, p3, p4, delButton);
+    card.append(p1, p2, p3, p4, delButton, statusButton);
 }
 
 function displayAllBooks() {
@@ -51,6 +52,7 @@ function displayAllBooks() {
     myLibrary.forEach((book) => { 
       createCard();
       createDeleteButton();
+      createStatusButton();
       createText(book);
       container.appendChild(card);
     });
@@ -71,8 +73,14 @@ function createDeleteButton() {
     deleteIndex++;
 }
 
+function createStatusButton() {
+    statusButton = document.createElement("button");
+    statusButton.textContent = "Toggle Status";
+    statusButton.setAttribute("class", "status-button");
+}
+
 function handleDeleteButton(e) {
-    if(!e.target.matches('button')) return; // skip this unless it's the delete button 
+    if(!e.target.matches('.delete-button')) return; // skip this unless it's the delete button 
     const element = e.target;
     myLibrary.splice(element.dataset.index, 1);
     displayAllBooks();
