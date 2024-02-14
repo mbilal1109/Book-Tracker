@@ -138,7 +138,7 @@ cancelBtn.addEventListener("click", () => {
 });
 
 login.addEventListener("click", () => {
-    if(window.confirm("Click OK to Login or Cancel to Stay on this Page")) {
-        window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+    if(window.confirm("Functionality Coming Soon...\nUntil Then Listen to This...")) {
+        window.open("https://www.youtube.com./watch?v=dQw4w9WgXcQ");
     }
 });
