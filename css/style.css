@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #9C43F1;
+    background-color:darkslategray;
     padding: 8px;
 }
 
@@ -19,4 +19,42 @@
     grid-template-rows: repeat(auto-fill, 1fr);
     grid-row-gap: .5em;
     grid-column-gap: 1em;
+}
+
+.delete-button,
+.new-book,
+.status-button,
+.add-book,
+.cancel {
+    background-color: black;
+    border-radius: 5px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 7px;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    touch-action: manipulation;
+}
+
+.delete-button:hover,
+.new-book:hover,
+.status-button:hover,
+.add-book:hover,
+.cancel:hover {
+    background-color: gray;
+    color: black;
 }

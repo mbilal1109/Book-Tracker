@@ -88,8 +88,8 @@ function handleDeleteButton(e) {
 
 container.addEventListener('click', handleDeleteButton);
 
-addBookBtn.addEventListener("click", (event) => {
-    event.preventDefault();
+addBookBtn.addEventListener("click", (e) => {
+    e.preventDefault();
 
     let bookName;
     let bookAuthor;
@@ -105,6 +105,7 @@ addBookBtn.addEventListener("click", (event) => {
     addBookToLibrary(bookObject);
     dialog.close();
     displayAllBooks();
+    form.reset();
 });
 
 newBookBtn.addEventListener("click", () => {
