@@ -139,6 +139,6 @@ cancelBtn.addEventListener("click", () => {
 
 login.addEventListener("click", () => {
     if(window.confirm("Functionality Coming Soon...\nUntil Then Listen to This...")) {
-        window.open("https://www.youtube.com./watch?v=dQw4w9WgXcQ");
+        window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
     }
 });
