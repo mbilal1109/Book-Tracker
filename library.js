@@ -105,11 +105,7 @@ function handleStatusButton(e) {
     displayAllBooks();
 }
 
-container.addEventListener('click', handleDeleteButton);
-
-container.addEventListener('click', handleStatusButton);
-
-addBookBtn.addEventListener("click", (e) => {
+function handleBookAddedByUser(e) {
     e.preventDefault();
 
     let bookName;
@@ -127,7 +123,13 @@ addBookBtn.addEventListener("click", (e) => {
     dialog.close();
     displayAllBooks();
     form.reset();
-});
+}
+
+container.addEventListener('click', handleDeleteButton);
+
+container.addEventListener('click', handleStatusButton);
+
+addBookBtn.addEventListener("click", handleBookAddedByUser);
 
 newBookBtn.addEventListener("click", () => {
     dialog.showModal();
